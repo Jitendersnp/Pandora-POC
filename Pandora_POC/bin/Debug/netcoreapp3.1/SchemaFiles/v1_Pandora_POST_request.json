@@ -1,0 +1,456 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "additionalProperties": false,
+  "title": "bim_store_data_schema_v0.1",
+  "type": "object",
+  "properties": {
+    "BusinessLocationId": {
+      "type": "string"
+    },
+    "Name": {
+      "type": "string"
+    },
+    "LocalName": {
+      "type": "string"
+    },
+    "CategoryId": {
+      "type": "string"
+    },
+    "CategoryName": {
+      "type": "string"
+    },
+    "Email": {
+      "type": "string",
+      "pattern": "^\\S+@\\S+\\.\\S+$",
+      "format": "email",
+      "minLength": 6,
+      "maxLength": 120
+    },
+    "WebAddress": {
+      "type": "string"
+    },
+    "ISOCountryCode2": {
+      "type": "string",
+      "maxLength": 2
+    },
+    "ISOCountryName": {
+      "type": "string"
+    },
+    "Latitude": {
+      "type": "string"
+    },
+    "Longitude": {
+      "type": "string"
+    },
+    "ChannelType": {
+      "type": "object",
+      "properties": {
+        "ChannelTypeId": {
+          "type": "string"
+        },
+        "ChannelTypeName": {
+          "type": "string"
+        },
+        "ChannelTypeCode": {
+          "type": "string"
+        },
+        "ChannelTypeNameShort": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "ChannelTypeId",
+        "ChannelTypeName",
+        "ChannelTypeCode",
+        "ChannelTypeNameShort"
+      ]
+    },
+    "Status": {
+      "type": "string"
+    },
+    "Asset": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "AssetId": {
+              "type": "string"
+            },
+            "AssetName": {
+              "type": "string"
+            },
+            "AssetTypeId": {
+              "type": "string"
+            },
+            "AssetTypeName": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "AssetId",
+            "AssetName",
+            "AssetTypeId",
+            "AssetTypeName"
+          ]
+        }
+      ]
+    },
+    "Phone": {
+      "type": "object",
+      "properties": {
+        "PhoneCountryCode": {
+          "type": "string"
+        },
+        "PhoneNumber": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "PhoneCountryCode",
+        "PhoneNumber"
+      ]
+    },
+    "Addresses": {
+      "type": "array",
+      "oneOf": [
+        {
+          "required": [
+            "AddressesTypeId",
+            "AddressesName",
+            "AddressesLine1"
+          ]
+        }
+      ],
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "AddressesTypeId": {
+              "type": "string"
+            },
+            "AddressesName": {
+              "type": "string"
+            },
+            "AddressesLine1": {
+              "type": "string"
+            },
+            "AddressesLine2": {
+              "type": "string"
+            },
+            "AddressesPostalCode": {
+              "type": "string"
+            },
+            "AddressesStateTerritoryCode": {
+              "type": "string"
+            },
+            "AddressesCityName": {
+              "type": "string"
+            },
+            "AddressesISOCountryCode2Id": {
+              "type": "string"
+            },
+            "AddressesISOCountryName": {
+              "type": "string"
+            },
+            "AddressesLatitude": {
+              "type": "string"
+            },
+            "AddressesLongitude": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "AddressesTypeId",
+            "AddressesName",
+            "AddressesLine1",
+            "AddressesLine2",
+            "AddressesPostalCode",
+            "AddressesStateTerritoryCode",
+            "AddressesCityName",
+            "AddressesISOCountryCode2Id",
+            "AddressesISOCountryName",
+            "AddressesLatitude",
+            "AddressesLongitude"
+          ]
+        }
+      ]
+    },
+    "OpeningHours": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "DayNameId": {
+              "type": "string"
+            },
+            "DayName": {
+              "type": "string"
+            },
+            "ALocalOpeningTime": {
+              "type": "string"
+            },
+            "ALocalClosingTime": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "DayNameId",
+            "DayName",
+            "ALocalOpeningTime",
+            "ALocalClosingTime"
+          ]
+        }
+      ]
+    },
+    "LifeCycle": {
+      "type": "object",
+      "properties": {
+        "LifeCycleStatusId": {
+          "type": "string"
+        },
+        "LifeCycleStatusName": {
+          "type": "string"
+        },
+        "LifeCycleStatusDate": {
+          "type": "string"
+        },
+        "NextComingLifeCycleStatusId": {
+          "type": "string"
+        },
+        "NextComingLifeCycleStatusName": {
+          "type": "string"
+        },
+        "NextComingLifeCycleStatusDate": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "LifeCycleStatusId",
+        "LifeCycleStatusName",
+        "LifeCycleStatusDate",
+        "NextComingLifeCycleStatusId",
+        "NextComingLifeCycleStatusName",
+        "NextComingLifeCycleStatusDate"
+      ]
+    },
+    "RetailStore": {
+      "type": "object",
+      "properties": {
+        "InternationalStoreId": {
+          "type": "string"
+        },
+        "RetailStoreInternalName": {
+          "type": "string"
+        },
+        "MarketId": {
+          "type": "string"
+        },
+        "MarketName": {
+          "type": "string"
+        },
+        "RetailStoreOwnershipTypeId": {
+          "type": "string"
+        },
+        "RetailStoreOwnershipTypeName": {
+          "type": "string"
+        },
+        "RetailStoreFormatId": {
+          "type": "string"
+        },
+        "RetailStoreFormatName": {
+          "type": "string"
+        },
+        "RetailStoreTypeId": {
+          "type": "string"
+        },
+        "RetailStoreTypeName": {
+          "type": "string"
+        },
+        "RetailStoreLocationTypeId": {
+          "type": "string"
+        },
+        "RetailStoreLocationTypeName": {
+          "type": "string"
+        },
+        "RetailStoreDesignConceptId": {
+          "type": "string"
+        },
+        "RetailStoreDesignConceptName": {
+          "type": "string"
+        },
+        "RetailStoreLegalEntityId": {
+          "type": "string"
+        },
+        "RetailStoreLegalEntityName": {
+          "type": "string"
+        },
+        "StoreProjectNumber": {
+          "type": "string"
+        },
+        "AutoReplenishYN": {
+          "type": "string"
+        },
+        "PrimaryISOCurrencyCodeId": {
+          "type": "string"
+        },
+        "PrimaryISOCurrencyCodeName": {
+          "type": "string"
+        },
+        "Areas": {
+          "type": "object",
+          "properties": {
+            "TotalArea": {
+              "type": "string"
+            },
+            "SalesArea": {
+              "type": "string"
+            },
+            "BackOfficeArea": {
+              "type": "string"
+            },
+            "LeaseArea": {
+              "type": "string"
+            },
+            "BackOfficeYN": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "TotalArea",
+            "SalesArea",
+            "BackOfficeArea",
+            "LeaseArea",
+            "BackOfficeYN"
+          ]
+        }
+      },
+      "required": [
+        "InternationalStoreId",
+        "RetailStoreInternalName",
+        "MarketId",
+        "MarketName",
+        "RetailStoreOwnershipTypeId",
+        "RetailStoreOwnershipTypeName",
+        "RetailStoreFormatId",
+        "RetailStoreFormatName",
+        "RetailStoreTypeId",
+        "RetailStoreTypeName",
+        "RetailStoreLocationTypeId",
+        "RetailStoreLocationTypeName",
+        "RetailStoreDesignConceptId",
+        "RetailStoreDesignConceptName",
+        "RetailStoreLegalEntityId",
+        "RetailStoreLegalEntityName",
+        "StoreProjectNumber",
+        "AutoReplenishYN",
+        "PrimaryISOCurrencyCodeId",
+        "PrimaryISOCurrencyCodeName",
+        "Areas"
+      ]
+    },
+    "IDExchange": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "ExternalId": {
+              "type": "string"
+            },
+            "IdExchangeTypeId": {
+              "type": "string"
+            },
+            "IdExchangeTypeName": {
+              "type": "string"
+            },
+            "PurposeDescription": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "ExternalId",
+            "IdExchangeTypeId",
+            "IdExchangeTypeName",
+            "PurposeDescription"
+          ]
+        }
+      ]
+    },
+    "LifeCycleStatuses": {
+      "type": "object",
+      "properties": {
+        "LifeCycleStatus": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "LifeCycleStatusId": {
+                  "type": "string"
+                },
+                "LifeCycleStatusName": {
+                  "type": "string"
+                },
+                "LifeCycleStatusFromDate": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "LifeCycleStatusId",
+                "LifeCycleStatusName",
+                "LifeCycleStatusFromDate"
+              ]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "LifeCycleStatusId": {
+                  "type": "string"
+                },
+                "LifeCycleStatusName": {
+                  "type": "string"
+                },
+                "LifeCycleStatusFromDate": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "LifeCycleStatusId",
+                "LifeCycleStatusName",
+                "LifeCycleStatusFromDate"
+              ]
+            }
+          ]
+        }
+      },
+      "required": [
+        "LifeCycleStatus"
+      ]
+    }
+  },
+  "required": [
+    "BusinessLocationId",
+    "Name",
+    "LocalName",
+    "CategoryId",
+    "CategoryName",
+    "Email",
+    "WebAddress",
+    "ISOCountryCode2",
+    "ISOCountryName",
+    "Latitude",
+    "Longitude",
+    "ChannelType",
+    "Status",
+    "Asset",
+    "Phone",
+    "Addresses",
+    "OpeningHours",
+    "LifeCycle",
+    "RetailStore",
+    "IDExchange",
+    "LifeCycleStatuses"
+  ]
+}
