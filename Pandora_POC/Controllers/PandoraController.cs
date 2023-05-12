@@ -23,6 +23,7 @@ namespace Pandora_POC.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateAsset([FromBody] JObject request)
         {
+
             string input = Convert.ToString(request);
             var validateResponse = _schemaValidator.ValidateInputAndOutput(input);
 
